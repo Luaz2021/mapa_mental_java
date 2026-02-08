@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa Mental - Unidad 2: Introducción a Java</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes pulse-soft {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        .animate-pulse-soft {
+            animation: pulse-soft 2s ease-in-out infinite;
+        }
+        .concept-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .concept-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        .code-example {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 min-h-screen p-6">
+    <div class="max-w-7xl mx-auto">
+        <!-- Encabezado -->
+        <div class="text-center mb-12">
+            <h1 class="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600 mb-4 animate-pulse-soft">
+                ☕ UNIDAD 2: Introducción a Java
+            </h1>
+            <p class="text-xl text-gray-700">De los conceptos a la práctica: escribe tu primer código</p>
+            <p class="text-sm text-gray-500 mt-2">📚 Profesor: Francisco Javier Navazo Fernández</p>
+        </div>
+
+        <!-- Concepto Central -->
+        <div class="mb-12 flex justify-center">
+            <div class="bg-gradient-to-r from-indigo-500 to-purple-500 text-white p-8 rounded-3xl shadow-2xl max-w-3xl">
+                <h2 class="text-3xl font-bold mb-4 text-center">🎯 ¿Qué vamos a aprender?</h2>
+                <p class="text-lg text-center mb-4">
+                    En esta unidad aprenderás a <strong>PROGRAMAR EN JAVA</strong>: desde declarar variables 
+                    hasta realizar operaciones matemáticas y lógicas. Es donde pasas de la teoría a 
+                    <strong>escribir código real</strong>.
+                </p>
+                <div class="bg-white/20 p-4 rounded-xl mt-4">
+                    <p class="text-center text-lg font-semibold">
+                        🔑 Estructura básica del programa:
+                    </p>
+                    <p class="text-center mt-2 font-mono text-sm">
+                        1️⃣ Creación de Variables → 2️⃣ Petición de Datos → 3️⃣ Operaciones → 4️⃣ Resultados
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bloques de Conceptos -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            
+            <!-- Bloque 1: Variables e Identificadores -->
+            <div class="concept-card bg-white rounded-2xl shadow-lg p-6 border-t-4 border-blue-500" onclick="toggleDetail('bloque1')">
+                <div class="flex items-center mb-4">
+                    <span class="text-4xl mr-3">📦</span>
+                    <h3 class="text-2xl font-bold text-blue-600">1. Variables e Identificadores</h3>
+                </div>
+                <p class="text-gray-600 mb-4">Las "cajas" donde guardamos datos</p>
+                <div id="bloque1" class="hidden mt-4 text-sm text-gray-700">
+                    <ul class="list-disc list-inside space-y-2">
+                        <li><strong>Variable:</strong> Espacio de memoria con un nombre</li>
+                        <li><strong>3 Características:</strong></li>
+                        <ul class="ml-6 list-circle list-inside">
+                            <li>Identificador (nombre único)</li>
+                            <li>Tipo de dato (int, double, String...)</li>
+                            <li>Valor (el dato guardado)</li>
+                        </ul>
+                        <li><strong>Reglas de nombres:</strong></li>
+                        <ul class="ml-6 list-circle list-inside">
+                            <li>Empiezan con letra minúscula</li>
+                            <li>Sin espacios (use camelCase)</li>
+                            <li>Sin palabras reservadas</li>
+                        </ul>
+                        <li>🎯 <strong>Ejemplo:</strong> <code>int edad = 18;</code></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bloque 2: Tipos de Datos -->
+            <div class="concept-card bg-white rounded-2xl shadow-lg p-6 border-t-4 border-green-500" onclick="toggleDetail('bloque2')">
+                <div class="flex items-center mb-4">
+                    <span class="text-4xl mr-3">🔢</span>
+                    <h3 class="text-2xl font-bold text-green-600">2. Tipos de Datos</h3>
+                </div>
+                <p class="text-gray-600 mb-4">8 tipos primitivos + String</p>
+                <div id="bloque2" class="hidden mt-4 text-sm text-gray-700">
+                    <ul class="list-disc list-inside space-y-2">
+                        <li><strong>Números enteros:</strong></li>
+                        <ul class="ml-6 list-circle list-inside">
+                            <li><code>byte</code> (muy pequeño)</li>
+                            <li><code>short</code> (pequeño)</li>
+                            <li><code>int</code> (normal) ⭐ Más usado</li>
+                            <li><code>long</code> (grande)</li>
+                        </ul>
+                        <li><strong>Números decimales:</strong></li>
+                        <ul class="ml-6 list-circle list-inside">
+                            <li><code>float</code> (precisión simple)</li>
+                            <li><code>double</code> (doble precisión) ⭐ Más usado</li>
+                        </ul>
+                        <li><strong>Otros:</strong></li>
+                        <ul class="ml-6 list-circle list-inside">
+                            <li><code>boolean</code> (true/false)</li>
+                            <li><code>char</code> (un carácter: 'A')</li>
+                            <li><code>String</code> (texto: "Hola") ⭐ Muy usado</li>
+                        </ul>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bloque 3: Declaración e Inicialización -->
+            <div class="concept-card bg-white rounded-2xl shadow-lg p-6 border-t-4 border-yellow-500" onclick="toggleDetail('bloque3')">
+                <div class="flex items-center mb-4">
+                    <span class="text-4xl mr-3">🎬</span>
+                    <h3 class="text-2xl font-bold text-yellow-600">3. Declaración e Inicialización</h3>
+                </div>
+                <p class="text-gray-600 mb-4">Cómo crear y usar variables</p>
+                <div id="bloque3" class="hidden mt-4 text-sm text-gray-700">
+                    <p class="mb-2"><strong>Declaración:</strong> Reservar espacio</p>
+                    <div class="code-example mb-3">int edad;</div>
+                    
+                    <p class="mb-2"><strong>Inicialización:</strong> Dar valor inicial</p>
+                    <div class="code-example mb-3">edad = 18;</div>
+                    
+                    <p class="mb-2"><strong>Ambas juntas:</strong></p>
+                    <div class="code-example mb-3">int edad = 18;</div>
+                    
+                    <p class="mb-2"><strong>Constantes:</strong> Valor que NO cambia</p>
+                    <div class="code-example">final double PI = 3.14;</div>
+                </div>
+            </div>
+
+            <!-- Bloque 4: Scanner (Entrada de Datos) -->
+            <div class="concept-card bg-white rounded-2xl shadow-lg p-6 border-t-4 border-red-500" onclick="toggleDetail('bloque4')">
+                <div class="flex items-center mb-4">
+                    <span class="text-4xl mr-3">⌨️</span>
+                    <h3 class="text-2xl font-bold text-red-600">4. Scanner - Entrada de Datos</h3>
+                </div>
+                <p class="text-gray-600 mb-4">Pedir datos al usuario</p>
+                <div id="bloque4" class="hidden mt-4 text-sm text-gray-700">
+                    <p class="mb-2"><strong>1. Importar Scanner:</strong></p>
+                    <div class="code-example mb-3">import java.util.Scanner;</div>
+                    
+                    <p class="mb-2"><strong>2. Crear objeto Scanner:</strong></p>
+                    <div class="code-example mb-3">Scanner sc = new Scanner(System.in);</div>
+                    
+                    <p class="mb-2"><strong>3. Pedir datos:</strong></p>
+                    <div class="code-example mb-1">String nombre = sc.nextLine();</div>
+                    <div class="code-example mb-1">int edad = sc.nextInt();</div>
+                    <div class="code-example">double nota = sc.nextDouble();</div>
+                    
+                    <p class="mt-3 text-xs text-yellow-700">⚠️ Con decimales: usar coma (,) en consola, punto (.) en código</p>
+                </div>
+            </div>
+
+            <!-- Bloque 5: Operadores -->
+            <div class="concept-card bg-white rounded-2xl shadow-lg p-6 border-t-4 border-purple-500" onclick="toggleDetail('bloque5')">
+                <div class="flex items-center mb-4">
+                    <span class="text-4xl mr-3">➕</span>
+                    <h3 class="text-2xl font-bold text-purple-600">5. Operadores</h3>
+                </div>
+                <p class="text-gray-600 mb-4">Hacer cálculos y comparaciones</p>
+                <div id="bloque5" class="hidden mt-4 text-sm text-gray-700">
+                    <ul class="list-disc list-inside space-y-2">
+                        <li><strong>Aritméticos:</strong> + - * / %</li>
+                        <li><strong>Asignación:</strong> = += -= *= /=</li>
+                        <li><strong>Incrementales:</strong> ++ --</li>
+                        <li><strong>Relacionales:</strong> > < >= <= == !=</li>
+                        <li><strong>Lógicos:</strong> && || !</li>
+                        <li><strong>Concatenación:</strong> + (para unir Strings)</li>
+                    </ul>
+                    <p class="mt-3"><strong>Orden de precedencia:</strong></p>
+                    <p class="text-xs">() → ++/-- → */% → +/- → comparaciones → lógicos → asignación</p>
+                </div>
+            </div>
+
+            <!-- Bloque 6: Casting -->
+            <div class="concept-card bg-white rounded-2xl shadow-lg p-6 border-t-4 border-orange-500" onclick="toggleDetail('bloque6')">
+                <div class="flex items-center mb-4">
+                    <span class="text-4xl mr-3">🔄</span>
+                    <h3 class="text-2xl font-bold text-orange-600">6. Conversión de Tipos (Casting)</h3>
+                </div>
+                <p class="text-gray-600 mb-4">Cambiar de un tipo a otro</p>
+                <div id="bloque6" class="hidden mt-4 text-sm text-gray-700">
+                    <p class="mb-2"><strong>Implícito (automático):</strong></p>
+                    <p class="text-xs mb-1">De menor a mayor capacidad</p>
+                    <div class="code-example mb-3">int num = 100;<br>long numLargo = num; // Automático</div>
+                    
+                    <p class="mb-2"><strong>Explícito (forzado):</strong></p>
+                    <p class="text-xs mb-1">De mayor a menor capacidad (puede perder datos)</p>
+                    <div class="code-example mb-3">double decimal = 9.8;<br>int entero = (int) decimal; // 9</div>
+                    
+                    <p class="mb-2"><strong>String a número:</strong></p>
+                    <div class="code-example mb-1">int num = Integer.parseInt("123");</div>
+                    <div class="code-example">double dec = Double.parseDouble("3.14");</div>
+                </div>
+            </div>
+
+            <!-- Bloque 7: Salida por Pantalla -->
+            <div class="concept-card bg-white rounded-2xl shadow-lg p-6 border-t-4 border-pink-500" onclick="toggleDetail('bloque7')">
+                <div class="flex items-center mb-4">
+                    <span class="text-4xl mr-3">🖥️</span>
+                    <h3 class="text-2xl font-bold text-pink-600">7. Salida por Pantalla</h3>
+                </div>
+                <p class="text-gray-600 mb-4">Mostrar resultados</p>
+                <div id="bloque7" class="hidden mt-4 text-sm text-gray-700">
+                    <p class="mb-2"><strong>System.out.print():</strong></p>
+                    <p class="text-xs mb-1">Imprime y el cursor queda en la misma línea</p>
+                    <div class="code-example mb-3">System.out.print("Hola");</div>
+                    
+                    <p class="mb-2"><strong>System.out.println():</strong></p>
+                    <p class="text-xs mb-1">Imprime y salta a la siguiente línea</p>
+                    <div class="code-example mb-3">System.out.println("Hola");</div>
+                    
+                    <p class="mb-2"><strong>Concatenar texto + variables:</strong></p>
+                    <div class="code-example">String nombre = "Ana";<br>int edad = 20;<br>System.out.println("Hola " + nombre + ", tienes " + edad + " años");</div>
+                </div>
+            </div>
+
+            <!-- Bloque 8: Comentarios -->
+            <div class="concept-card bg-white rounded-2xl shadow-lg p-6 border-t-4 border-teal-500" onclick="toggleDetail('bloque8')">
+                <div class="flex items-center mb-4">
+                    <span class="text-4xl mr-3">💬</span>
+                    <h3 class="text-2xl font-bold text-teal-600">8. Comentarios</h3>
+                </div>
+                <p class="text-gray-600 mb-4">Documentar tu código</p>
+                <div id="bloque8" class="hidden mt-4 text-sm text-gray-700">
+                    <p class="mb-2"><strong>Una línea:</strong></p>
+                    <div class="code-example mb-3">// Este es un comentario de una línea</div>
+                    
+                    <p class="mb-2"><strong>Múltiples líneas:</strong></p>
+                    <div class="code-example mb-3">/* Este es un comentario<br>   de varias líneas */</div>
+                    
+                    <p class="mb-2"><strong>Javadoc (documentación):</strong></p>
+                    <div class="code-example">/** Documentación del programa<br> * @author Tu Nombre<br> * @version 1.0<br> */</div>
+                    
+                    <p class="mt-3 text-xs text-green-700">✅ Pueden valer hasta 1 punto en el examen</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Estructura de un Programa Completo -->
+        <div class="bg-gradient-to-r from-blue-500 to-purple-500 text-white p-8 rounded-3xl shadow-2xl mb-12">
+            <h2 class="text-3xl font-bold mb-6 text-center">📝 Estructura Completa de un Programa Java</h2>
+            <div class="bg-white/20 p-6 rounded-xl">
+                <pre class="text-sm overflow-x-auto"><code>import java.util.Scanner;  // 0. Importar librerías
+
+public class PrimerEjemplo {
+    public static void main(String[] args) {
+        
+        // 1️⃣ CREACIÓN DE VARIABLES
+        String nombre;
+        int edad;
+        double nota1, nota2, media;
+        
+        // 2️⃣ PETICIÓN DE DATOS
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.print("Dime tu nombre: ");
+        nombre = sc.nextLine();
+        
+        System.out.print("Dime tu edad: ");
+        edad = sc.nextInt();
+        
+        System.out.print("Nota 1er trimestre: ");
+        nota1 = sc.nextDouble();
+        
+        System.out.print("Nota 2do trimestre: ");
+        nota2 = sc.nextDouble();
+        
+        // 3️⃣ OPERACIONES
+        media = (nota1 + nota2) / 2;
+        
+        // 4️⃣ RESULTADOS
+        System.out.println("Hola " + nombre);
+        System.out.println("Tu nota media es: " + media);
+    }
+}</code></pre>
+            </div>
+        </div>
+
+        <!-- Objetivos de Aprendizaje -->
+        <div class="bg-gradient-to-r from-green-400 to-blue-500 text-white p-8 rounded-3xl shadow-2xl mb-12">
+            <h2 class="text-3xl font-bold mb-6 text-center">🎓 Al terminar esta unidad, serás capaz de:</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="flex items-start">
+                    <span class="text-2xl mr-3">✅</span>
+                    <p>Declarar e inicializar variables de diferentes tipos</p>
+                </div>
+                <div class="flex items-start">
+                    <span class="text-2xl mr-3">✅</span>
+                    <p>Usar Scanner para pedir datos al usuario</p>
+                </div>
+                <div class="flex items-start">
+                    <span class="text-2xl mr-3">✅</span>
+                    <p>Realizar operaciones matemáticas y lógicas</p>
+                </div>
+                <div class="flex items-start">
+                    <span class="text-2xl mr-3">✅</span>
+                    <p>Convertir datos entre diferentes tipos (casting)</p>
+                </div>
+                <div class="flex items-start">
+                    <span class="text-2xl mr-3">✅</span>
+                    <p>Mostrar resultados por pantalla con System.out.println</p>
+                </div>
+                <div class="flex items-start">
+                    <span class="text-2xl mr-3">✅</span>
+                    <p>Documentar tu código con comentarios</p>
+                </div>
+                <div class="flex items-start">
+                    <span class="text-2xl mr-3">✅</span>
+                    <p>Crear programas completos siguiendo la estructura de 4 pasos</p>
+                </div>
+                <div class="flex items-start">
+                    <span class="text-2xl mr-3">✅</span>
+                    <p>Concatenar texto y variables para mostrar información</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recordatorios Importantes del Profesor -->
+        <div class="bg-white rounded-2xl shadow-lg p-8 mb-12">
+            <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">⚡ Recordatorios del Profesor Javier</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                    <p class="text-yellow-800 font-semibold mb-2">📌 Nombres de clases vs variables</p>
+                    <p class="text-sm text-yellow-700">
+                        • Clases: <code>PrimerEjemplo</code> (PascalCase)<br>
+                        • Variables: <code>primerEjemplo</code> (camelCase)<br>
+                        • Constantes: <code>PRIMER_EJEMPLO</code> (SCREAMING_SNAKE_CASE)
+                    </p>
+                </div>
+                
+                <div class="bg-red-50 border-l-4 border-red-400 p-4">
+                    <p class="text-red-800 font-semibold mb-2">⚠️ Decimal: coma vs punto</p>
+                    <p class="text-sm text-red-700">
+                        • En código: <code>double nota = 4.5;</code> (punto)<br>
+                        • En consola: escribir <code>4,5</code> (coma)<br>
+                        • Si usas punto en consola → Excepción ❌
+                    </p>
+                </div>
+                
+                <div class="bg-blue-50 border-l-4 border-blue-400 p-4">
+                    <p class="text-blue-800 font-semibold mb-2">🎯 Orden en el programa</p>
+                    <p class="text-sm text-blue-700">
+                        1. Creación de variables<br>
+                        2. Petición de datos<br>
+                        3. Operaciones<br>
+                        4. Resultados
+                    </p>
+                </div>
+                
+                <div class="bg-green-50 border-l-4 border-green-400 p-4">
+                    <p class="text-green-800 font-semibold mb-2">💾 Guardar o no guardar</p>
+                    <p class="text-sm text-green-700">
+                        • Si necesitas el valor después → Variable<br>
+                        • Si solo lo muestras una vez → Directo en println()<br>
+                        Ejemplo: <code>System.out.println((nota1+nota2)/2);</code>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Instrucciones de Uso -->
+        <div class="bg-white rounded-2xl shadow-lg p-8 text-center">
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">💡 Cómo usar este mapa</h3>
+            <p class="text-gray-600 mb-4">
+                <strong>Haz clic en cada tarjeta</strong> para desplegar los detalles y ejemplos de código.
+                Esta unidad es <strong>práctica</strong>: necesitas escribir código para aprenderla.
+            </p>
+            <div class="mt-6 bg-purple-50 border-l-4 border-purple-400 p-4">
+                <p class="text-purple-800">
+                    🌟 <strong>Siguiente paso:</strong> Abre Eclipse, crea un proyecto y empieza a programar. 
+                    La teoría se entiende HACIENDO ejercicios. Como dice el profesor: 
+                    <em>"Como no os pongáis a picar código, es imposible que lo aprendáis"</em>
+                </p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="mt-12 text-center text-gray-500 text-sm">
+            <p>☕ Unidad 2 - Introducción a Java | DAM - Universidad Europea de Madrid</p>
+            <p class="mt-2">¡A programar! 🚀</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleDetail(id) {
+            const element = document.getElementById(id);
+            if (element.classList.contains('hidden')) {
+                element.classList.remove('hidden');
+                element.classList.add('animate-pulse-soft');
+            } else {
+                element.classList.add('hidden');
+                element.classList.remove('animate-pulse-soft');
+            }
+        }
+    </script>
+</body>
+</html>
